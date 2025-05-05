@@ -9,8 +9,7 @@ Checking whether any word starts with a given prefix
 
 Counting how many stored words end with a given suffix
 
-🧠 Implemented Methods put(word: str, value: Any = None) Inserts a word into the
-Trie with an optional value (e.g., an index). If the word already exists, it
+Inserts a word into the Trie with an optional value (e.g., an index). If the word already exists, it
 won't be duplicated. Only unique words are stored.
 
 has_prefix(prefix: str) -> bool Returns True if there is at least one word in
@@ -20,24 +19,6 @@ count_words_with_suffix(suffix: str) -> int Returns the number of words that end
 with the specified suffix. Internally, the method performs a depth-first search
 (DFS) through the Trie and checks whether each full word ends with the given
 suffix.
-
-✅ Example Usage
-
-trie = Homework() words = ["apple", "application", "banana", "cat"] for i, word
-in enumerate(words): trie.put(word, i)
-
-assert trie.count_words_with_suffix("e") == 1 # "apple" assert
-trie.count_words_with_suffix("ion") == 1 # "application" assert
-trie.count_words_with_suffix("a") == 1 # "banana" assert trie.has_prefix("app")
-is True # "apple", "application" assert trie.has_prefix("bat") is False 🧪
-Testing The implementation has been tested with multiple prefixes and suffixes.
-
-The code includes input validation and raises appropriate errors when non-string
-inputs are used.
-
-🧩 Possible Extensions Implementing word deletion (delete)
-
-Fetching all words with a given prefix or suffix (get_words_with_prefix/suffix)
 
 ## 🔍 Task 2: Longest Common Prefix using Trie
 
@@ -59,7 +40,7 @@ Handles empty input and invalid data gracefully.
 
 Time complexity: O(S), where S is the total number of characters in all strings.
 
-🧠 Implemented Method find_longest_common_word(strings: List[str]) -> str Builds
+Implemented Method find_longest_common_word(strings: List[str]) -> str Builds
 a Trie from all input strings.
 
 Traverses the Trie while:
@@ -75,20 +56,3 @@ Returns:
 The longest common prefix (e.g., "fl").
 
 An empty string if no common prefix exists or the input is empty.
-
-✅ Example Usage
-
-trie = LongestCommonWord() assert trie.find_longest_common_word(["flower",
-"flow", "flight"]) == "fl"
-
-trie = LongestCommonWord() assert trie.find_longest_common_word(["interspecies",
-"interstellar", "interstate"]) == "inters"
-
-trie = LongestCommonWord() assert trie.find_longest_common_word(["dog",
-"racecar", "car"]) == ""
-
-trie = LongestCommonWord() assert trie.find_longest_common_word([]) == "" ⚠️
-Input Handling If the input is not a list of strings, the method raises a
-ValueError.
-
-If the input list is empty, it returns an empty string.
